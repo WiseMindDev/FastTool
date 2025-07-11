@@ -9,7 +9,7 @@ const restartBtn = document.getElementById("restartBtn");
 const englishBtn = document.getElementById("englishBtn");
 const persianBtn = document.getElementById("persianBtn");
 const durationButtons = document.querySelectorAll(".duration-button");
-const soundToggleBtn = document.getElementById("soundToggleBtn");
+// const soundToggleBtn = document.getElementById("soundToggleBtn");
 const messageBox = document.getElementById("messageBox");
 
 // Results Modal Elements
@@ -72,21 +72,17 @@ let testDuration = 30; // Default test duration in seconds
 let soundEnabled = true; // Sound toggle state
 
 // --- Audio Elements ---
-// Using very short, silent base64 WAVs as placeholders.
-// Replace with actual sound data if desired.
+// Base64 encoded audio for short, subtle sounds.
 const correctSound = new Audio(
   "data:audio/wav;base64,UklGRl9XAABXQVZFZm10IBAAAAABAAEARAEAASAAvwIAAAACABAAZGF0YVAA"
-);
+); // Placeholder, replace with actual sound if desired
 const incorrectSound = new Audio(
   "data:audio/wav;base64,UklGRl9XAABXQVZFZm10IBAAAAABAAEARAEAASAAvwIAAAACABAAZGF0YVAA"
-);
-const beepSound = new Audio(
-  "data:audio/wav;base64,UklGRl9XAABXQVZFZm10IBAAAAABAAEARAEAASAAvwIAAAACABAAZGF0YVAA"
-); // New: Beep sound for timer end
+); // Placeholder, replace with actual sound if desired
+// Removed the audible beep sound as per request.
 
 correctSound.volume = 0.1;
 incorrectSound.volume = 0.1;
-beepSound.volume = 0.3; // Adjust beep volume
 
 // --- Utility Functions ---
 
@@ -201,11 +197,7 @@ function endTest() {
   testStarted = false;
   typingInput.value = ""; // Clear input on test end
 
-  if (soundEnabled) {
-    // Play beep sound if enabled
-    beepSound.currentTime = 0;
-    beepSound.play();
-  }
+  // Removed beep sound as per request.
 
   const results = calculateResults();
 
@@ -228,7 +220,7 @@ function resetTest() {
   testStarted = false;
 
   typingInput.value = "";
-  typingInput.disabled = false;
+  typingInput.disabled = false; // Ensure input is enabled on reset
   timerSpan.textContent = "00"; // Reset to 00
   // Reset spans for internal variables, not visible in new UI
   wpmSpan.textContent = "0";
@@ -316,13 +308,13 @@ function selectDuration(duration) {
 }
 
 // Toggle sound
-function toggleSound() {
-  soundEnabled = !soundEnabled;
-  soundToggleBtn.querySelector("i").className = soundEnabled
-    ? "fas fa-volume-up"
-    : "fas fa-volume-mute";
-  showMessage(`Sound ${soundEnabled ? "enabled" : "disabled"}.`);
-}
+// function toggleSound() {
+//   soundEnabled = !soundEnabled;
+//   soundToggleBtn.querySelector("i").className = soundEnabled
+//     ? "fas fa-volume-up"
+//     : "fas fa-volume-mute";
+//   showMessage(`Sound ${soundEnabled ? "enabled" : "disabled"}.`);
+// }
 
 // --- Initial Setup and Event Listeners ---
 
@@ -330,17 +322,19 @@ function toggleSound() {
 window.addEventListener("load", () => {
   displayText();
   typingInput.focus();
+  // Ensure typing input is enabled on load
+  typingInput.disabled = false;
   // Set initial state for sound button icon
-  soundToggleBtn.querySelector("i").className = soundEnabled
-    ? "fas fa-volume-up"
-    : "fas fa-volume-mute";
+  // soundToggleBtn.querySelector("i").className = soundEnabled
+  //   ? "fas fa-volume-up"
+  //   : "fas fa-volume-mute";
 });
 
 // Event listeners for buttons
 restartBtn.addEventListener("click", resetTest);
 englishBtn.addEventListener("click", () => selectLanguage("english"));
 persianBtn.addEventListener("click", () => selectLanguage("persian"));
-soundToggleBtn.addEventListener("click", toggleSound);
+// soundToggleBtn.addEventListener("click", toggleSound);
 
 // Add event listeners for duration buttons
 durationButtons.forEach((button) => {
