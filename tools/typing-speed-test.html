@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Typing Speed Test</title>
+    <link rel="stylesheet" href="../css/typing-speed-test.css" />
+    <!-- Google Fonts - Inter for English, Vazirmatn for Persian -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Vazirmatn:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <style></style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="app-title">Typing Speed Test</h1>
+
+      <div class="controls-top">
+        <div class="language-selector">
+          <button id="englishBtn" class="lang-button active">English</button>
+          <button id="persianBtn" class="lang-button">فارسی</button>
+        </div>
+
+        <div class="duration-selector">
+          <button class="duration-button active" data-duration="30">30s</button>
+          <button class="duration-button" data-duration="60">60s</button>
+          <button class="duration-button" data-duration="120">120s</button>
+        </div>
+
+        <!-- <button id="soundToggleBtn" class="control-button sound-toggle">
+          <i class="fas fa-volume-up"></i>
+        </button> -->
+      </div>
+
+      <div class="text-display" id="textDisplay" dir="ltr">
+        <!-- Text to be typed will be loaded here -->
+      </div>
+
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <textarea
+        id="typingInput"
+        class="typing-input"
+        placeholder="Start typing here..."
+        autofocus
+      ></textarea>
+
+      <div class="results">
+        <p>Time: <span id="timer">0</span>s</p>
+        <p>WPM: <span id="wpm">0</span></p>
+        <p>Accuracy: <span id="accuracy">100</span>%</p>
+        <p>Errors: <span id="errors">0</span></p>
+      </div>
+
+      <button id="restartBtn" class="control-button restart-button">
+        <i class="fas fa-redo"></i> Restart Test
+      </button>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="resultsModal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <h2>Test Complete!</h2>
+        <div class="modal-results">
+          <p>Final WPM: <span id="finalWpm">0</span></p>
+          <p>Final Accuracy: <span id="finalAccuracy">0</span>%</p>
+          <p>Total Errors: <span id="finalErrors">0</span></p>
+          <p>Time Taken: <span id="finalTime">0</span>s</p>
+        </div>
+        <button id="closeModalBtn" class="control-button">
+          <i class="fas fa-times"></i> Close
+        </button>
+        <button id="retryTestBtn" class="control-button">
+          <i class="fas fa-redo"></i> Retry
+        </button>
+      </div>
+    </div>
+
+    <div id="messageBox" class="message-box hidden"></div>
+
+    <script src="../js/typing-speed-test.js"></script>
+  </body>
+</html>
