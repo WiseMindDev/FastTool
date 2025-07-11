@@ -151,20 +151,20 @@ body {
   background-color: var(--color-button-restart-hover);
 }
 
-.sound-toggle {
+/* .sound-toggle {
   background-color: var(--color-button-sound);
-  width: 50px; /* Fixed width for sound button */
-  height: 50px; /* Fixed height for sound button */
-  border-radius: 50%; /* Make it circular */
+  width: 50px; Fixed width for sound button
+  height: 50px; Fixed height for sound button
+  border-radius: 50%; Make it circular
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0; /* Remove padding for circular button */
-}
+  padding: 0; Remove padding for circular button
+} */
 
-.sound-toggle:hover {
+/* .sound-toggle:hover {
   background-color: var(--color-button-sound-hover);
-}
+} */
 
 .text-display {
   background-color: var(--color-background-dark);
@@ -408,10 +408,10 @@ body {
     font-size: 0.9rem;
   }
 
-  .sound-toggle {
+  /* .sound-toggle {
     width: 45px;
     height: 45px;
-  }
+  } */
 
   .text-display {
     font-size: 1.1rem;
